@@ -15,7 +15,7 @@ module.exports = {
   entry: {
     'background': path.join(srcPath, 'background.js'),
     'content': path.join(srcPath, 'content.js'),
-    'popup': path.join(srcPath, 'popup', 'Root.jsx'),
+    'popup': path.join(srcPath, 'popup', 'Root.js'),
   },
   ouput: {
     filename: '[name].js',
