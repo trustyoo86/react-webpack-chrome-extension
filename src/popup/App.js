@@ -6,6 +6,8 @@
 'use strict';
 
 import React from 'react';
+import * as actions from './modules';
+import { connect } from 'react-redux';
 
 const styles = {
   container: {
@@ -14,15 +16,28 @@ const styles = {
   },
 };
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        {/* container */}
-        <div style={styles.container} />
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <div>
+      {/* container */}
+      <div style={styles.container} />
+    </div>
+  );
+};
 
-export default App;
+const mapStateToProps = (state) => ({
+  color: state.color,
+  number: state.number,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onIncrement: () => dispatch(actions.increment()),
+  onDecrement: () => dispatch(actions.decrement()),
+});
+
+const AppContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
+
+export default AppContainer;
